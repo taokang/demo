@@ -1,0 +1,3 @@
+2020-07-18 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-N8ET0U9 with PID 25752 (D:\IdeaProjects\demo\target\classes started by 14357 in D:\IdeaProjects\demo)
+2020-07-18 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-07-18 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 5.441 seconds (JVM running for 7.249)

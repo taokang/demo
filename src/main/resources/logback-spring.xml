@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--scan="true"表示配置文件如果发生改变会去自动重新加载，scanPeriod表示扫描配置文件时间间隔，这里是每60秒扫描一次-->
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+<!--    &lt;!&ndash; 定义参数常量 &ndash;&gt;-->
+<!--    &lt;!&ndash;log.level 日志级别 TRACE<DEBUG<INFO<WARN<ERROR &ndash;&gt;-->
+<!--    &lt;!&ndash; logger.trace("msg") logger.debug... &ndash;&gt;-->
+<!--    &lt;!&ndash;log.level用来记录输出哪个级别以上的日志，这里使用debug,表示输出debug级别以上的日志（包括debug）&ndash;&gt;-->
+<!--    <property name="log.level" value="debug" />-->
+<!--    &lt;!&ndash;log.maxHistory 日志文件保留的最长时间，这里设置最长保留30天，第31天的日志会覆盖第一天的日志&ndash;&gt;-->
+<!--    <property name="log.maxHistory" value="30" />-->
+<!--    &lt;!&ndash;日志存放的根路径，${catalina.base}就是Tomcat的根目录&ndash;&gt;-->
+<!--    <property name="log.filePath" value="${catalina.base}/logs/webapps" />-->
+
+<!--    &lt;!&ndash;日志展示的格式&ndash;&gt;-->
+<!--    <property name="log.pattern"-->
+<!--              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n" />-->
+<!--    &lt;!&ndash; 控制台设置 &ndash;&gt;-->
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="addressTest" class="ch.qos.logback.core.FileAppender">
+        <file>log/addressLog.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="rollingAddressTest" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>rollingLog/rollingLog.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>rollingLog/logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>2</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--日志关注的哪个package，并输出哪些级别的日志${log.level}，如果没有指定，则默认继承root上的level,这里是info-->
+    <!--additivity="true"表示logger会将其父类，即root下的appender,这里就是consoleAppender放到自己这里（errorAppender之后），
+    并且添加过来的consoleAppender的level不按照root下的，而是按照logger下的level，即控制台也会输出debug的日志信息-->
+    <logger name="com.example.demo" level="info" additivity="true">
+        <appender-ref ref="addressTest"/>
+        <appender-ref ref="rollingAddressTest"/>
+    </logger>
+
+    <root level="info">
+        <appender-ref ref="consoleAppender"/>
+    </root>
+</configuration>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.TbUserDao">
+
+<!--
+<insert id="insert" parameterType="com.example.demo.entity.TbUser" >
+    insert into tb_area(area_id,area_name,priority,age)
+    values (#{areaId},#{areaName},#{priority},#{age})
+</insert>
+
+    <select id="selectByTest" resultType="com.example.demo.entity.TbUser">
+        select * from tb_area where area_id in
+        <foreach collection="a" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+    <update id="updateByAge" parameterType="com.example.demo.entity.TbUser">
+        update tb_area
+        <set>
+            priority=#{priority},
+            <if test="areaName!=''">
+                area_name=#{areaName},
+            </if>
+        </set>
+        where age <=#{age}
+    </update>
+-->
+
+
+</mapper>
