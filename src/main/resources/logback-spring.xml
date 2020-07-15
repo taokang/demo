@@ -43,8 +43,11 @@
     <!--日志关注的哪个package，并输出哪些级别的日志${log.level}，如果没有指定，则默认继承root上的level,这里是info-->
     <!--additivity="true"表示logger会将其父类，即root下的appender,这里就是consoleAppender放到自己这里（errorAppender之后），
     并且添加过来的consoleAppender的level不按照root下的，而是按照logger下的level，即控制台也会输出debug的日志信息-->
-    <logger name="com.example.demo" level="info" additivity="true">
+    <logger name="com.example.demo.controller" level="info" additivity="true">
         <appender-ref ref="addressTest"/>
+    </logger>
+
+    <logger name="com.example.demo.dao" level="trace" additivity="true">
         <appender-ref ref="rollingAddressTest"/>
     </logger>
 

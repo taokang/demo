@@ -1,3 +1,8 @@
 2020-07-18 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-N8ET0U9 with PID 25752 (D:\IdeaProjects\demo\target\classes started by 14357 in D:\IdeaProjects\demo)
 2020-07-18 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
 2020-07-18 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 5.441 seconds (JVM running for 7.249)
+2020-07-15 [http-nio-8080-exec-1] DEBUG c.e.demo.dao.TbUserDao.selectById - ==>  Preparing: SELECT id,area_name AS areaNameTest,priority,age FROM tb_area WHERE id=? 
+2020-07-15 [http-nio-8080-exec-1] DEBUG c.e.demo.dao.TbUserDao.selectById - ==> Parameters: 1(Integer)
+2020-07-15 [http-nio-8080-exec-1] TRACE c.e.demo.dao.TbUserDao.selectById - <==    Columns: id, areaNameTest, priority, age
+2020-07-15 [http-nio-8080-exec-1] TRACE c.e.demo.dao.TbUserDao.selectById - <==        Row: 1, update test, 1, 121221
+2020-07-15 [http-nio-8080-exec-1] DEBUG c.e.demo.dao.TbUserDao.selectById - <==      Total: 1

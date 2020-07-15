@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.dao.TbUserDao;
+import com.example.demo.dto.ExceptionTest;
 import com.example.demo.dto.MyException;
 import com.example.demo.entity.TbUser;
 import com.example.demo.service.TbUserService;
@@ -38,6 +39,9 @@ public class TbUserController {
 
     @Autowired
     private TbUserDao tbUserDao;
+
+    @Autowired
+    private ExceptionTest exceptionTest;
 
     @RequestMapping(value = "/mybatis")
     public void showTest(){
@@ -100,12 +104,20 @@ public class TbUserController {
     @RequestMapping("/mp")
     @Transactional
     public String showMP(){
-        LOGGER.info("进入logger测试");
+        /*LOGGER.info("进入logger测试");
         System.out.println("enter update test");
         TbUser tbUser=tbUserDao.selectById(1);
        System.out.println("获取到的值为:"+tbUser);
        System.out.println(tbUser==null);
-        LOGGER.info("获取的值为{}"+tbUser);
+        LOGGER.info("获取的值为{}"+tbUser);*/
+        LOGGER.info("enter mp");
+        try {
+            exceptionTest.exceptionTest();
+            LOGGER.info("方法执行成功!");
+        }catch (Exception e){
+            LOGGER.info("方法执行失败，异常值为:"+e.getStackTrace());
+        }
+
 
         /*Page<TbUser> page=new Page<>(1,2,false);
         QueryWrapper<TbUser> queryWrapper=new QueryWrapper<>();
