@@ -6,17 +6,20 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.dao.TbUserDao;
 import com.example.demo.dto.ExceptionTest;
+import com.example.demo.dto.GenericTest;
 import com.example.demo.dto.MyException;
 import com.example.demo.entity.TbUser;
 import com.example.demo.service.TbUserService;
 import com.sun.javafx.scene.control.behavior.TableCellBehavior;
 import com.sun.rmi.rmid.ExecPermission;
+import javafx.scene.input.DataFormat;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.support.SimpleTriggerContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -26,7 +29,13 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
+import java.math.BigDecimal;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Controller
@@ -110,13 +119,42 @@ public class TbUserController {
        System.out.println("获取到的值为:"+tbUser);
        System.out.println(tbUser==null);
         LOGGER.info("获取的值为{}"+tbUser);*/
+
         LOGGER.info("enter mp");
-        try {
-            exceptionTest.exceptionTest();
-            LOGGER.info("方法执行成功!");
-        }catch (Exception e){
-            LOGGER.info("方法执行失败，异常值为:"+e.getStackTrace());
-        }
+        GenericTest genericTest=new GenericTest();
+        genericTest.show(100);
+
+
+        //LOGGER.info("是否包含:{}",x1.contains());
+//        int k=10;
+//        BigDecimal bigDecimal=BigDecimal.valueOf(100.502);
+//        LOGGER.info("answer is :{}",bigDecimal);
+//        LOGGER.info("转换后的值为:{}",bigDecimal.intValue());
+//        Calendar calendar = Calendar.getInstance();
+//        //DataFormat dataFormat= new DataFormat("yyyy-MM-dd HH:mm:ss");
+//        //Date beforeD = beforeTime.getTime();
+//        LOGGER.info("日历值为:{}",calendar.get(Calendar.YEAR));
+//        LOGGER.info("日历值为:{}",calendar.get(Calendar.MONTH));
+//        LOGGER.info("日历值为:{}",calendar.get(Calendar.DATE));
+//        LOGGER.info("日历值为:{}",calendar.get(Calendar.HOUR));
+//        LOGGER.info("日历值为:{}",calendar.get(Calendar.MINUTE));
+//        LOGGER.info("日历值为:{}",calendar.get(Calendar.SECOND));
+//
+//        DateFormat dateFormat=DateFormat.getDateTimeInstance();
+//        LOGGER.info("格式化的日期时间为:"+dateFormat.format(calendar));
+
+/*        LOGGER.info("java8的日期时间");
+        LocalDateTime localDateTime=LocalDateTime.now().withNano(0);
+        LOGGER.info("日期时间的值为:{}",localDateTime);
+        LocalDateTime localDateTime1=localDateTime.plusMinutes(10);
+        LOGGER.info("分钟加10后的值为:{}",localDateTime1);
+        LocalDateTime localDateTime2=localDateTime.plusMinutes(-10);
+        LOGGER.info("分钟减10后的值为:{}",localDateTime2);
+        DateTimeFormatter formatter=DateTimeFormatter.
+                ofPattern("yyyy-MM-dd:HH-mm-ss");
+        LOGGER.info("格式化的值为:{}",localDateTime.format(formatter));*/
+
+
 
 
         /*Page<TbUser> page=new Page<>(1,2,false);

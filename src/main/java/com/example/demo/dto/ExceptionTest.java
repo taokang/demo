@@ -18,10 +18,10 @@ public class ExceptionTest {
     private final static Logger LOGGER= LoggerFactory.getLogger(ExceptionTest.class);
 
     public void exceptionTest  (){
-        int[] k=new int[5];
+/*        int[] k=new int[5];
         for(int i=0;i<7;i++){
             k[i]=i;
-        }
+        }*/
         LOGGER.info("继续执行！");
         /*try {
             int[] k=new int[5];
